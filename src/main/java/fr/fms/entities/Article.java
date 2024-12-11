@@ -19,7 +19,7 @@ public class Article implements Serializable {
     private Category category;
 
 
-    public Article(String brand, String description, double price, int quantity, Category category) {
+    public Article(String description,String brand, double price, int quantity, Category category) {
         this.brand = brand;
         this.description = description;
         this.price = price;
@@ -28,7 +28,7 @@ public class Article implements Serializable {
     }
 
 
-    public Article(String brand, String description, double price, int quantity) {
+    public Article(String description, String brand, double price, int quantity) {
         this.brand = brand;
         this.description = description;
         this.price = price;
@@ -87,6 +87,7 @@ public class Article implements Serializable {
                 ", description='" + description + '\'' +
                 ", price=" + price +
                 ", quantity=" + quantity +
+                ", category=" + category +
                 '}';
     }
 }

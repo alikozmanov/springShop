@@ -10,21 +10,11 @@ public class Category implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String description;
 
     @OneToMany(mappedBy = "category")
     private Collection<Article> articles;
 
     public Category() {
-    }
-
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public Category(String name) {
@@ -43,8 +33,12 @@ public class Category implements Serializable {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
+    @Override
+    public String toString() {
+        return "Category{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
 
