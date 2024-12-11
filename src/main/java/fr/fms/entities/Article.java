@@ -6,24 +6,39 @@ import java.io.Serializable;
 @Entity
 public class Article implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String brand;
     private String description;
     private double price;
+    private int quantity; // Utilisez un int pour quantité
 
     @ManyToOne
     private Category category;
 
-    public Article(String description, String brand, double price, Category category) {
-    }
 
-    public Article(String brand, String description, double price) {
+    public Article(String brand, String description, double price, int quantity, Category category) {
         this.brand = brand;
         this.description = description;
         this.price = price;
+        this.quantity = quantity;
+        this.category = category;
     }
 
+
+    public Article(String brand, String description, double price, int quantity) {
+        this.brand = brand;
+        this.description = description;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
+    public Article() {
+    }
+
+    // Getters et Setters
     public Long getId() {
         return id;
     }
@@ -56,6 +71,14 @@ public class Article implements Serializable {
         this.price = price;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
     @Override
     public String toString() {
         return "Article{" +
@@ -63,6 +86,7 @@ public class Article implements Serializable {
                 ", brand='" + brand + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
+                ", quantity=" + quantity +
                 '}';
     }
 }
