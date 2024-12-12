@@ -23,6 +23,25 @@ public class SpringShopJpaApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		// Exemple 1 : Récupérer un article par son ID et l'afficher
+		System.out.println("=== Affichage d'un article spécifique ===");
+		Long articleId = 1L; // ID de l'article à rechercher
+		Article article = articleRepository.findById(articleId).orElse(null);
+		if (article != null) {
+			System.out.println(article);
+		} else {
+			System.out.println("Article non trouvé par son ID : " + articleId);
+		}
+
+		// Exemple 2 : Afficher tous les articles en base
+		System.out.println("\n=== Affichage de tous les articles ===");
+		for (Article a : articleRepository.findAll()) {
+			System.out.println(a);
+		}
+
+
+
+		// Ex 1.1
 //		Category smartphone = categoryRepository.save(new Category("Smartphone"));
 //		Category tablet = categoryRepository.save(new Category("Tablet"));
 //		Category pc = categoryRepository.save(new Category("Pc"));
@@ -45,8 +64,8 @@ public class SpringShopJpaApplication implements CommandLineRunner {
 //		for (Article article : articleRepository.findByBrandAndPrice("Samsung", 200)) {
 //			System.out.println(article);
 //		}
-		for (Article article : articleRepository.findByCategoryId(1L)) {
-			System.out.println(article);
+		for (Article article1 : articleRepository.findByCategoryId(1L)) {
+			System.out.println(article1);
 		}
 	}
 }
