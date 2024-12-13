@@ -9,11 +9,11 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 public interface CategoryRepository extends JpaRepository<Category,Long> {
-    // Ex1.6 : Afficher les catégories triées par ordre croissant
-    @Query("SELECT c FROM Category c ORDER BY c.name ASC")
-    List<Category> findAllCategoriesOrderedByNameAsc();
-
-    // Ex1.6 : Afficher les catégories triées par ordre décroissant
-    @Query("SELECT c FROM Category c ORDER BY c.name DESC")
-    List<Category> findAllCategoriesOrderedByNameDesc();
+//    // Ex1.6 : Afficher les catégories triées par ordre croissant
+//    @Query("SELECT c FROM Category c ORDER BY c.name ASC")
+//    List<Category> findAllCategoriesOrderedByNameAsc();
+//
+//    // Ex1.6 : Afficher les catégories triées par ordre décroissant
+//    @Query("SELECT c FROM Category c ORDER BY c.name DESC")
+//    List<Category> findAllCategoriesOrderedByNameDesc();
 }
