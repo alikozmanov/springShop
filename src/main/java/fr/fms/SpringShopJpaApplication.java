@@ -118,7 +118,7 @@ public class SpringShopJpaApplication implements CommandLineRunner {
 			System.out.println("2 : Afficher tous les articles avec pagination ");
 			System.out.println("3: Ajouter un nouvel article");
 			System.out.println("4: Afficher un article");
-			System.out.println("0 : Quitter ");
+			System.out.println("0 : Sortie du programme ");
 			System.out.println("Veuillez saisir une option : ");
 
 			int choice = scan.nextInt(); // Lire les options
@@ -134,7 +134,7 @@ public class SpringShopJpaApplication implements CommandLineRunner {
 					addNewArticle(scan);
 					break;
 				case 4:
-					viewAnArticle(scan);
+					viewAnArticleId(scan);
 					break;
 				case 0:
 					System.out.println("Au revoir");
@@ -187,7 +187,20 @@ public class SpringShopJpaApplication implements CommandLineRunner {
 		System.out.println("Article ajouté avec succès !");
 	}
 
+	// Afficher un article par son id
+	private void viewAnArticleId(Scanner scan) {
+		System.out.println("\n=== Afficher un article par ID ===");
 
+		System.out.print("Entrez l'ID de l'article : ");
+		Long id = scan.nextLong();
+
+		// Récupérer l'article en base
+		Article article = articleRepository.findById(id).orElse(null);
+		if (article != null) {
+			System.out.println("Détails de l'article : " + article);
+		} else {
+			System.out.println("Aucun article trouvé avec l'ID : " + id);
+		}
 
 	}
 }
